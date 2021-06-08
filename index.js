@@ -7,6 +7,25 @@ const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
+app.post('/save/stacks', db.createUser);
+//app.get('/get/retreive', );
+
+
+// CRUD - Create (save, post), Retrieve (get, fetch), Update (modify, put), Delete (remove, purge, prune)
+
+/*
+ Problem 1 - create a service with 2 endpoints -> save and retrieve (stack) LIFO
+ Problem 2 - create a service with 2 endpoints -> save and retrieve (queue) FIFO
+
+ Pseudocode/Algorithm
+    app.post /save/stacks (save) - 
+      |_ stack (push)
+        |_ database insert into postgres
+    app.get /xyz (retrieve) - stack ()
+
+*/
+
 app.get('/', (request, response) => {
     response.json({ message: "Eureka it worked!" });
 });

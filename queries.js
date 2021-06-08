@@ -9,6 +9,16 @@ const pool = new Pool({
 });
 
 
+const createUser = async (request, response) => {
+    const {data, agentid, structureid} = request.body
+    
+    //stack.push(.....)
+
+    pool.query('INSERT INTO agent (data, agentid, structureid) VALUES ($1, $2, $3)',[data, agentid, structureid], (error, results) => {
+        if (error) throw error;
+        response.status(201).json("A user has successfully been created!");
+    });
+};
 
 
 
@@ -22,22 +32,30 @@ class Stack{
     }
 
 
-push(element) {
-    this.items[this.count] = element
-    console.log(`${element} added to ${this.count}`)
-    this.count += 1
-    return this.count - 1
-    
-    } 
+    push(element) {
+        this.items[this.count] = element
+        console.log(`${element} added to ${this.count}`)
+        this.count += 1
+        return this.count - 1
+    }
+
 }
+
+
+
+
+
 
 const stack = new Stack()
 
 stack.push({ 
-Data : "Insert Data",
-AgentId : '1',
-StructureId: '1',
+data: "New Data",
+agentid : '4',
+structureid : '6'
 
 })
 
-
+module.exports = {
+    Stack,
+    createUser
+};
