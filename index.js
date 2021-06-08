@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-app.post('/save/stacks', db.createUser);
+app.post('/save/stacks', db.postAgent);
 //app.get('/retreive/stacks', );
 
 
