@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.post('/save/stacks', db.postAgent);
-//app.get('/retreive/stacks', );
+app.get('/retrieve/stacks', db.getAgent);
 
 
 // CRUD - Create (save, post), Retrieve (get, fetch), Update (modify, put), Delete (remove, purge, prune)
