@@ -8,8 +8,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-app.post('/save/stacks', db.postAgent);
-app.get('/retrieve/stacks', db.getAgent);
+app.post('/save/stack', db.postMessageStack);
+app.get('/retrieve/stack', db.getMessageStack);
+app.get('/retrieve/queue', db.getMessageQueue);
+app.get('/retrieve/allMessages', db.getMessagesByAgentId);
 
 
 // CRUD - Create (save, post), Retrieve (get, fetch), Update (modify, put), Delete (remove, purge, prune)
