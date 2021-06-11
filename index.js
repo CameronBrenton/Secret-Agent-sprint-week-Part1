@@ -1,3 +1,10 @@
+//
+// Title: Top-secret government agent messaging system
+// This is a sprint week project using node.js, express http, and datastructures.
+// Created By Jacob Sheppard and Cameron Brenton. 
+//
+
+
 const express = require('express');
 const app = express();
 const db = require('./queries');

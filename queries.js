@@ -19,7 +19,6 @@ class Stack{
         return this.count === 0;
     };
 
-
     pop() {
         this.count = this.count -1;
         return this.items.pop();
@@ -32,7 +31,6 @@ class Stack{
         return this.count - 1
     };
     
-
 };
 
 const stack = new Stack()
@@ -45,7 +43,6 @@ pool.query('SELECT * FROM agent', function (err, results) {
         var i;
         for ( i = 0; i < results.rowCount;i++){
             stack.push(results.rows[i]);
-            /*console.log(stack)*/
         }
     }
 });
@@ -56,8 +53,6 @@ const postMessageStack = async (request, response) => {
     pool.query(`INSERT INTO agent (data, agentid, structureid) VALUES ($1, $2, $3)`, [data, agentid, structureid], (error, results) => {
         if (error) throw error;
         response.status(201).json("An agent order has successfully been created!");
-        /*console.log(stack)*/
- 
     })
 };
 
@@ -69,7 +64,6 @@ const getMessageStack = (request, response) => {
         let stackInfo = stack.pop()
         response.status(200).json(`Hello agent! These are your orders:  ${stackInfo.data}`);
         console.log(`Hello agent! These are your orders:  ${stackInfo.data}`)
-        /*console.log(stack.pop())*/
     });
 };
 
@@ -91,11 +85,9 @@ class Queue {
         const result = this.items[this.lowestCount];
         delete this.items[this.lowestCount];
         this.lowestCount++;
-        //console.log(`Here are your orders from the queue: ${result.data}`)
         return result;
         
     };
-
 
     enqueue(element) {
         this.items[this.count] = element;
@@ -113,8 +105,6 @@ let queue = new Queue()
             var i;
             for ( i = 0; i < results.rowCount;i++){
                 queue.enqueue(results.rows[i]);
-               /* console.log(queue)*/
-
             }
         }
     })
@@ -126,7 +116,6 @@ let queue = new Queue()
             let queueInfo = queue.dequeue()
             response.status(200).json(`Hello agent! These are your orders:  ${queueInfo.data}`);
             console.log(`Hello agent! These are your orders:  ${queueInfo.data}`)
-           /* console.log(queue.dequeue())*/
         });
     };
 
@@ -142,9 +131,7 @@ let queue = new Queue()
         });
     };
 
-    
-
-
+   
 
 module.exports = {
     postMessageStack,
