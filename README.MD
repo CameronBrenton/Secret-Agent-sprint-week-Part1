@@ -5,5 +5,4 @@ Implementing:
 -Express
 -Databases
 -Datastructures
-
 -Pair Programming

@@ -36,7 +36,7 @@ app.get('/retrieve/allMessages', db.getMessagesByAgentId);
 */
 
 app.get('/', (request, response) => {
-    response.json({ message: "Eureka it worked!" });
+    response.json({ message: "Good day agent! I hope you are doing well" });
 });
 app.listen(port, () => {
     console.log(`Running on http://localhost:${port}`);
