@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.post('/save/stack', db.postMessageStack);
 app.get('/retrieve/stack', db.getMessageStack);
 app.get('/retrieve/queue', db.getMessageQueue);
-app.get('/retrieve/allMessages', db.getMessagesByAgentId);
+app.get('/retrieve/allMessagesPosted', db.getMessagesPostedByAgentId);
 
 
 app.get('/', (request, response) => {

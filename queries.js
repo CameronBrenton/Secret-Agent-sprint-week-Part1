@@ -110,10 +110,10 @@ let queue = new Queue()
         });
     };
 
-    const getMessagesByAgentId = (request, response) => { 
+    const getMessagesPostedByAgentId = (request, response) => { 
         const { agentid } = request.body
            
-        pool.query('SELECT data FROM agent WHERE agentid = $1', [agentid], (error, results) => {
+        pool.query('SELECT * FROM agent FULL JOIN agentque ON agent.id = agentque.id', (error, results) => {
             if (error) throw error;
             response.status(200).json(results.rows);   
             console.log("Hello agent! These are your orders")
@@ -127,5 +127,5 @@ module.exports = {
     postMessageStack,
     getMessageStack,
     getMessageQueue,
-    getMessagesByAgentId
+    getMessagesPostedByAgentId
 };
