@@ -21,20 +21,6 @@ app.get('/retrieve/queue', db.getMessageQueue);
 app.get('/retrieve/allMessages', db.getMessagesByAgentId);
 
 
-// CRUD - Create (save, post), Retrieve (get, fetch), Update (modify, put), Delete (remove, purge, prune)
-
-/*
- Problem 1 - create a service with 2 endpoints -> save and retrieve (stack) LIFO
- Problem 2 - create a service with 2 endpoints -> save and retrieve (queue) FIFO
-
- Pseudocode/Algorithm
-    app.post /save/stacks (save) - 
-      |_ stack (push)
-        |_ database insert into postgres
-    app.get /xyz (retrieve) - stack ()
-
-*/
-
 app.get('/', (request, response) => {
     response.json({ message: "Good day agent! I hope you are doing well" });
 });
